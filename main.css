@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+main {
+    width: 360px;
+    height: 100%;
+    margin: auto;
+    background-color: #efefef;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    background-color: red;
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}
