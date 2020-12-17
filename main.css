@@ -6,26 +6,51 @@ body, html {
     padding: 0;
     margin: 0;
     height: 100%;
+    color: #fff !important;
 }
 
 main {
     width: 360px;
     height: 100%;
     margin: auto;
-    background-color: #efefef;
+    background-image: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8dGFibGV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    
 }
 
 h1 {
     text-align: center;
     padding: 10px;
-    background-color: red;
     margin-bottom: 0;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 h2 {
     margin-top: 0;
     text-align: center;
-    background-color: #000;
-    color: #fff;
     padding: 10px;
+}
+
+#game {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(4, 56px);
+    gap: 10px;
+    width: 280px;
+    height: 280px;
+}
+
+.item {
+    background-color: rgb(81, 175, 199);
+    box-shadow: 0 8px 8px 0 rgba(0, 2, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cover {
+   background-image: url("https://images.unsplash.com/photo-1467151568115-d968fdf5d292?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzgyfHxibHVyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+   background-size: cover;
 }
