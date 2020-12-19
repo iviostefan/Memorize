@@ -120,16 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
             val.length = 0;
             if (cor === 8) {
                 clearInterval(check);
-                let c = 0;
-
-                const final = setInterval(() => {
-                    if (c > 0) {
-                        clearInterval(final);
-                    }
-                    c++;
-                    game.classList.add("win");
-                    game.classList.remove("win");
-                }, 100);
             }
         }
     }, 250);
