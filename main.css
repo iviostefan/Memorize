@@ -9,7 +9,7 @@ body {
 
 * {
     box-sizing: border-box;
-    }
+}
 
 .night {
     --primary-color: #ebe6e6;
@@ -95,5 +95,5 @@ p {
 }
 
 .cover {
-     background-color: var(--cover);
+    background-color: var(--cover);
 }

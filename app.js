@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let div = document.createElement("div");
             let span = document.createElement("span");
             span.setAttribute("id", String(this.id));
-            span.classList.add("hidden");
             div.appendChild(span);
             div.setAttribute("class", "item");
             game.appendChild(div);
@@ -51,15 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let item of pos2) {
         y.push(item);
     }
-    const xOy = new Map();
-    for (let i = 0; i < x.length; i++) {
-        xOy.set(x[i], y[i]);
-    }
     for (let item of alpha) {
         content.push(item);
     }
+    let objects = [];
     for (let index = 1; index <= 16; index++) {
         let object = new Item(index);
+        objects.push(objects);
         object.generate();
     }
     const setContent = (id1, id2, src) => {
@@ -72,9 +69,19 @@ document.addEventListener("DOMContentLoaded", function () {
         setContent(x[i], y[i], content[i]);
     }
     let items = document.getElementsByClassName("item");
-    for (let item = 0; item < items.length; item++) {
-        items[item].classList.add("cover");
-    }
+    let value = 10;
+    const interval = setInterval(function () {
+        value--;
+        countdown.innerHTML = value;
+        if (value === 0) {
+            clearInterval(interval);
+            countdown.style.visibility = "hidden";
+            for (let index = 0; index < items.length; index++) {
+                items[index].classList.add("cover");
+                items[index].firstChild.style.display = "none";
+            }
+        }
+    }, 1000);
     let parents = [];
     let cab = [];
     let val = [];
@@ -93,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
+    let final = document.getElementById("final");
     const check = setInterval(() => {
         if (parents.length === 2) {
             for (let item of parents) {
@@ -120,9 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
             val.length = 0;
             if (cor === 8) {
                 clearInterval(check);
+                final.innerHTML = "Congratulations!! 🎉";
             }
         }
     }, 250);
-
-
 });
