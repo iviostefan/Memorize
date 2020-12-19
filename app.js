@@ -17,25 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
             this.id = id;
         }
         generate() {
+            let click = false;
             let div = document.createElement("div");
             let span = document.createElement("span");
             span.setAttribute("id", String(this.id));
             span.classList.add("hidden");
             div.appendChild(span);
             div.setAttribute("class", "item");
-            div.addEventListener("click", function () {
-                if (div.classList.contains("cover")) {
-                    div.classList.remove("cover");
-                    span.style.display = "block";
-                } else {
-                    div.classList.add("cover");
-                    span.style.display = "none";
-                }
-            })
             game.appendChild(div);
         }
     }
-    const chs = [...'😋😄😃😘🤩🤗😎🥰😥😴🙄😶😏👗👙👡🌮🥗🧀🥞🥐🥟🍗🦼🎂🍨🍬🍵☕🥃🍺🍸'];
+    const chs = [...'😍😘🥰🤩🤗😅🤑😲😨🥓🍔🍕🥗🥛☕🍵🍬🍫🍰🎂🍩🥧🍧'];
     const alpha = new Set();
     let content = [];
     while (alpha.size !== 8) {
@@ -83,4 +75,54 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let item = 0; item < items.length; item++) {
         items[item].classList.add("cover");
     }
+    let parents = [];
+    let cab = [];
+    let val = [];
+    let cor = 0;
+    for (let item = 0; item < items.length; item++) {
+        items[item].addEventListener("click", function () {
+            if (items[item].classList.contains("cover")) {
+                items[item].classList.remove("cover");
+                items[item].firstChild.style.display = "block";
+                parents.push(items[item]);
+                cab.push(items[item].firstChild);
+                val.push(items[item].firstChild.innerHTML);
+            } else {
+                items[item].classList.add("cover");
+                items[item].firstChild.style.display = "none";
+            }
+        })
+    }
+    const check = setInterval(() => {
+        if (parents.length === 2) {
+            for (let item of parents) {
+                item.classList.add("cover");
+            }
+            for (let item of cab) {
+                item.style.display = "none";
+            }
+            if (val[0] === val[1]) {
+                cor++;
+                parents[0].style.opacity = ".6";
+                parents[0].classList.remove("cover");
+                parents[0].style.pointerEvents = 'none';
+                cab[0].style.display = "block";
+                parents[1].style.opacity = ".6";
+                cab[1].style.display = "block";
+                parents[1].classList.remove("cover");
+                parents[1].style.pointerEvents = 'none';
+                cab.length = 0;
+                parents.length = 0;
+                val.length = 0;
+            }
+            cab.length = 0;
+            parents.length = 0;
+            val.length = 0;
+            if (cor === 8) {
+                clearInterval(check);
+            }
+        }
+    }, 250);
+
+
 });
