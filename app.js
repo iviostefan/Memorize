@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
             val.length = 0;
             if (cor === 8) {
                 clearInterval(check);
-                final.innerHTML = "Congratulations!! 🎉";
+                final.innerHTML = "🎉🎉🎉";
             }
         }
     }, 250);
