@@ -53,10 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let item of alpha) {
         content.push(item);
     }
-    let objects = [];
     for (let index = 1; index <= 16; index++) {
         let object = new Item(index);
-        objects.push(objects);
         object.generate();
     }
     const setContent = (id1, id2, src) => {
